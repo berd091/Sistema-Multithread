@@ -17,3 +17,5 @@
   `g++ client.cpp -o cliente-lws2_32`
   
   `.\cliente.exe`
+
+**certifique-se de ter o gcc instalado em seu SO.*
