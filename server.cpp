@@ -45,12 +45,12 @@ int main() {
         return 1;
     }
 
-    // Configure server address
+    
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(PORT);
     serverAddr.sin_addr.s_addr = INADDR_ANY;
 
-    // Bind socket
+    
     if (bind(serverSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
         std::cerr << "Erro no bind." << std::endl;
         closesocket(serverSocket);
@@ -58,7 +58,7 @@ int main() {
         return 1;
     }
 
-    // Listen
+    
     if (listen(serverSocket, MAX_CONNECTIONS) == SOCKET_ERROR) {
         std::cerr << "Erro ao ouvir conexoes." << std::endl;
         closesocket(serverSocket);
@@ -68,7 +68,7 @@ int main() {
 
     std::cout << "Servidor esperando por conexoes na porta " << PORT << std::endl;
 
-    // Accept and handle connections
+
     while (true) {
         sockaddr_in clientAddr;
         int clientAddrLen = sizeof(clientAddr);
