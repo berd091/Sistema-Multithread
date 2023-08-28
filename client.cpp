@@ -17,7 +17,7 @@ int main() {
     SOCKET clientSocket;
     sockaddr_in serverAddr;
 
-    // Create socket
+    
     clientSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (clientSocket == INVALID_SOCKET) {
         std::cerr << "Erro ao criar o socket." << std::endl;
@@ -25,12 +25,12 @@ int main() {
         return 1;
     }
 
-    // Configure server address
+    
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(PORT);
     serverAddr.sin_addr.s_addr = inet_addr(SERVER_IP);
 
-    // Connect to server
+    
     if (connect(clientSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
         std::cerr << "Erro ao conectar ao servidor." << std::endl;
         closesocket(clientSocket);
